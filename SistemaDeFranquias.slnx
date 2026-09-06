@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Franquias.Api/Franquias.Api.csproj" />
+  <Project Path="Franquias.Application/Franquias.Application.csproj" />
+  <Project Path="Franquias.Domain/Franquias.Domain.csproj" />
+  <Project Path="Franquias.Infrastructure/Franquias.Infrastructure.csproj" />
+  <Project Path="Franquias.Tests/Franquias.Tests.csproj" />
+</Solution>
