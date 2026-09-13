@@ -50,4 +50,12 @@ public class Royalty
         UnidadeId = unidadeId;
         Status = StatusRoyalty.Pendente;
     }
+
+    public void RegistrarPagamento()
+    {
+        if (Status == StatusRoyalty.Pago)
+            throw new InvalidOperationException("Este royalty já foi pago.");
+
+        Status = StatusRoyalty.Pago;
+    }
 }

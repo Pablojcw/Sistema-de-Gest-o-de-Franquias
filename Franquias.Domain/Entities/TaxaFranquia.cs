@@ -40,4 +40,12 @@ public class TaxaFranquia
         UnidadeId = unidadeId;
         Status = StatusTaxaFranquia.Pendente;
     }
+
+    public void RegistrarPagamento()
+    {
+        if (Status == StatusTaxaFranquia.Paga)
+            throw new InvalidOperationException("Esta taxa já foi paga.");
+
+        Status = StatusTaxaFranquia.Paga;
+    }
 }

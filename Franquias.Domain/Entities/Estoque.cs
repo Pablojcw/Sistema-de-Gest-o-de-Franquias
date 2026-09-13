@@ -30,4 +30,34 @@ public class Estoque
         ProdutoId = produtoId;
         UnidadeId = unidadeId;
     }
+
+    public void Creditar(decimal quantidade)
+    {
+        if (quantidade <= 0)
+            throw new ArgumentException("A quantidade deve ser maior que zero.");
+
+        Quantidade += quantidade;
+    }
+
+    public void Debitar(decimal quantidade)
+    {
+        if (quantidade <= 0)
+            throw new ArgumentException("A quantidade deve ser maior que zero.");
+
+        if (quantidade > Quantidade)
+            throw new InvalidOperationException(
+                $"Saldo insuficiente no estoque. Saldo atual: {Quantidade}, necessário: {quantidade}.");
+
+        Quantidade -= quantidade;
+    }
+
+    public void AlterarEstoqueMinimo(decimal estoqueMinimo)
+    {
+        if (estoqueMinimo < 0)
+            throw new ArgumentException("O estoque mínimo não pode ser negativo.");
+
+        EstoqueMinimo = estoqueMinimo;
+    }
+
+    public bool EstaAbaixoDoMinimo() => Quantidade <= EstoqueMinimo;
 }

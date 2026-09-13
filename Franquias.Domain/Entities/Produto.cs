@@ -40,4 +40,24 @@ public class Produto
         FranquiaId = franquiaId;
         Status = StatusProduto.Ativo;
     }
+
+    public void Atualizar(
+        string nome,
+        string descricao,
+        string categoria,
+        decimal precoBase)
+    {
+        if (precoBase < 0)
+            throw new ArgumentException("O preco base nao pode ser negativo");
+
+        Nome = nome;
+        Descricao = descricao;
+        Categoria = categoria;
+        PrecoBase = precoBase;
+    }
+
+    public void AlterarStatus(StatusProduto status)
+    {
+        Status = status;
+    }
 }

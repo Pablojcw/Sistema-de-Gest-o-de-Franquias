@@ -42,7 +42,8 @@ public class Chamado
         string descricao,
         string categoria,
         Guid usuarioId,
-        Guid unidadeId)
+        Guid unidadeId,
+        StatusPrioridade prioridade = StatusPrioridade.Baixa)
     {
         Id = Guid.NewGuid();
         Titulo = titulo;
@@ -52,6 +53,29 @@ public class Chamado
         UnidadeId = unidadeId;
         DataAberta = DateTime.UtcNow;
         Status = StatusChamado.Aguardando;
-        Prioridade = StatusPrioridade.Baixa;
+        Prioridade = prioridade;
+    }
+
+    public void Atualizar(
+        string titulo,
+        string descricao,
+        string categoria,
+        StatusPrioridade prioridade)
+    {
+        Titulo = titulo;
+        Descricao = descricao;
+        Categoria = categoria;
+        Prioridade = prioridade;
+    }
+
+    public void AtualizarStatus(StatusChamado status)
+    {
+        Status = status;
+    }
+
+    public void Encerrar()
+    {
+        Status = StatusChamado.Terminado;
+        DataFechamento = DateTime.UtcNow;
     }
 }
