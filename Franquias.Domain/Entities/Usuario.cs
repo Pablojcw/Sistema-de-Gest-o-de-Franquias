@@ -42,4 +42,26 @@ public class Usuario
         UnidadeId = unidadeId;
         Ativa = true;
     }
+
+    public void Atualizar(
+        string nome,
+        string email,
+        PerfilUsuario perfil,
+        Guid? unidadeId)
+    {
+        Nome = nome;
+        Email = email;
+        Perfil = perfil;
+        UnidadeId = unidadeId;
+    }
+
+    public void AlterarSenha(string senhaHash)
+    {
+        SenhaHash = senhaHash;
+    }
+
+    public void AlterarAtivo(bool ativa)
+    {
+        Ativa = ativa;
+    }
 }

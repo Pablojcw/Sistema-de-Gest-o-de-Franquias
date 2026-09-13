@@ -8,5 +8,6 @@ public class CriarChamadoRequest
     public string Descricao { get; set; } = string.Empty;
     public string Categoria { get; set; } = string.Empty;
     public StatusPrioridade Prioridade { get; set; }
+    public Guid UsuarioId { get; set; }
     public Guid UnidadeId { get; set; }
 }

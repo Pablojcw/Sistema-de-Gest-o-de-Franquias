@@ -8,4 +8,5 @@ public class CriarMovimentacaoEstoqueRequest
     public decimal Quantidade { get; set; }
     public Guid ProdutoId { get; set; }
     public Guid UnidadeId { get; set; }
+    public Guid UsuarioId { get; set; }
 }

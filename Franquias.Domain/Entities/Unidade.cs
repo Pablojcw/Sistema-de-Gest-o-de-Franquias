@@ -41,4 +41,27 @@ public class Unidade
         FranquiaId = franquiaId;
         Situacao = "Ativa";
     }
+
+    public void Atualizar(
+        string nome,
+        string email,
+        string telefone,
+        string endereco,
+        string cidade,
+        string estado)
+    {
+        Nome = nome;
+        Email = email;
+        Telefone = telefone;
+        Endereco = endereco;
+        Cidade = cidade;
+        Estado = estado;
+    }
+
+    public void AlterarSituacao(bool ativa)
+    {
+        Situacao = ativa ? "Ativa" : "Inativa";
+    }
+
+    public bool EstaAtiva() => Situacao == "Ativa";
 }

@@ -28,4 +28,26 @@ public class Venda
         Status = StatusVenda.Pendente;
         ValorTotal = 0;
     }
+
+    public void Confirmar(decimal valorTotal)
+    {
+        if (Status != StatusVenda.Pendente)
+            throw new InvalidOperationException(
+                "Somente vendas pendentes podem ser confirmadas.");
+
+        if (valorTotal <= 0)
+            throw new ArgumentException(
+                "A venda precisa possuir pelo menos um item para ser confirmada.");
+
+        ValorTotal = valorTotal;
+        Status = StatusVenda.Concluida;
+    }
+
+    public void Cancelar()
+    {
+        if (Status == StatusVenda.Concluida || Status == StatusVenda.Cancelada)
+            throw new InvalidOperationException("Esta venda não pode ser cancelada.");
+
+        Status = StatusVenda.Cancelada;
+    }
 }

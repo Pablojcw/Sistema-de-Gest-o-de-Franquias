@@ -33,4 +33,21 @@ public class Fornecedor
         Telefone = telefone;
         Status = StatusFornecedor.Ativo;
     }
+
+    public void Atualizar(
+        string nome,
+        string cnpj,
+        string email,
+        string telefone)
+    {
+        Nome = nome;
+        Cnpj = cnpj;
+        Email = email;
+        Telefone = telefone;
+    }
+
+    public void AlterarStatus(StatusFornecedor status)
+    {
+        Status = status;
+    }
 }

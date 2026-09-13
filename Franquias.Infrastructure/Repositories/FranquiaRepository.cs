@@ -33,6 +33,15 @@ public class FranquiaRepository : IFranquiaRepository
     {
         return await _context.Franquias
             .AsNoTracking()
+            .OrderBy(f => f.Nome)
             .ToListAsync();
+    }
+
+    public async Task<Franquia> AtualizarAsync(Franquia franquia)
+    {
+        _context.Update(franquia);
+        await _context.SaveChangesAsync();
+
+        return franquia;
     }
 }

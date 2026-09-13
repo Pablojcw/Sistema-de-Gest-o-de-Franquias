@@ -9,4 +9,6 @@ public interface IFranquiaRepository
     Task<Franquia?> ObterPorIdAsync(Guid id);
 
     Task<List<Franquia>> ObterTodasAsync();
+
+    Task<Franquia> AtualizarAsync(Franquia franquia);
 }

@@ -23,4 +23,17 @@ public class Franquia
         Endereco = endereco;
         Ativa = true;
     }
+
+    public void Atualizar(
+        string nome,
+        string endereco)
+    {
+        Nome = nome;
+        Endereco = endereco;
+    }
+
+    public void AlterarAtiva(bool ativa)
+    {
+        Ativa = ativa;
+    }
 }
