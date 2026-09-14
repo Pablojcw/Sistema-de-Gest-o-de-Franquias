@@ -1,3 +1,4 @@
+using System.Reflection.Metadata;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -112,13 +113,11 @@ builder.Services.AddSwaggerGen(options =>
         Description = "Informe o token JWT no formato: Bearer {token}"
     });
 
-    options.AddSecurityRequirement(_ => new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecuritySchemeReference("Bearer"),
-            new List<string>()
-        }
-    });
+    options.AddSecurityRequirement(document =>
+      new OpenApiSecurityRequirement
+      {
+          [new OpenApiSecuritySchemeReference("Bearer", document)] = []
+      });
 });
 builder.Services.AddOpenApi();
 
